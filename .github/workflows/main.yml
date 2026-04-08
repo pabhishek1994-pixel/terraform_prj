@@ -1,0 +1,21 @@
+# This workflow yaml file is regarding sequential jobs 
+name: Sequential job example
+on: 
+  push:
+    branches: main
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        run: echo "This is job1"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step2
+        run: echo "this is job2"
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step3
+        run: echo "Hi this is last job"
