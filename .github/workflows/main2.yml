@@ -11,7 +11,7 @@ jobs:
       - id: set_output
         run: |
           message="hello this from job1"
-          result="((2+1))"
+          result="$((2+1))"
           echo "message=$message" >> $GITHUB_OUTPUT
           echo "result=$result" >> $GITHUB_OUTPUT
   job2:
