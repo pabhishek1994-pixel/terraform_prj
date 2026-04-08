@@ -1,8 +1,9 @@
 # This workflow yaml file is regarding sequential jobs 
 name: Sequential job example
-on: 
-  push:
-    branches: main
+on: workflow_dispatch
+#push:
+#branches: main
+
 jobs:
   job1:
     runs-on: ubuntu-latest
