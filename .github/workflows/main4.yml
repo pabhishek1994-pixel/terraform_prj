@@ -1,0 +1,22 @@
+# different types of variables
+name: setting types of variables
+
+on: workflow_dispatch
+
+env:
+  GLOBAL_ENV: "this is global variable"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV: "This is job level variable"
+
+    steps:
+      - name: Print variables
+        env:
+          STEP_ENV: "This is step level variable"
+        run: |
+          echo "$GLOBAL_ENV"
+          echo "$JOB_ENV"
+          echo "$STEP_ENV"
