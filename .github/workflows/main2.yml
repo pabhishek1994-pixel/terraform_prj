@@ -10,15 +10,15 @@ jobs:
     steps:
       - id: set_output
         run: |
-          message= "hello this from job1"
-          result= "2+1"
+          message="hello this from job1"
+          result="((2+1))"
           echo "message=$message" >> $GITHUB_OUTPUT
           echo "result=$result" >> $GITHUB_OUTPUT
-    job2:
-      needs: job1
-      runs-on: ubuntu-latest
-      steps:
-        - name: print_the variables
-          run: |
-            echo "message from job1: ${{needs.job1.output.my_out1}}"
-            echo "result from job1: ${{needs.job1.output.my_out2}}"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: print_the variables
+        run: |
+          echo "message from job1: ${{needs.job1.outputs.my_out1}}"
+          echo "result from job1: ${{needs.job1.outputs.my_out2}}"
