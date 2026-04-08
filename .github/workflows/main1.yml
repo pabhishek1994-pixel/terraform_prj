@@ -1,0 +1,16 @@
+#run a job even the dependencies job fails 
+name: run job on failure
+on: workflow_dispatch
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: failing_job
+        run: exit1
+  job2:
+    needs: job1
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: continue job2
+        run: echo "This job is run even job1 fails"
