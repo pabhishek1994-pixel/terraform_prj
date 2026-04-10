@@ -1,0 +1,36 @@
+#setting variable
+name: dynamic setting name 
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your name"
+        required: false
+        default: "Abhishek"
+      env:
+        description: "Enter the env"
+        required: false
+        default: "Test"
+    
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: setting input
+        run: echo "${{ github.event.inputs.username }}"
+
+       - name: setting input
+         run: echo "${{ github.event.inputs.env }}"
+
+      - name: setting username output
+        id: set_output
+        run: echo "msg=my name is ${{ github.event.inputs.username }}" >>$GITHUB_OUTPUT
+
+       - name: setting env output
+        id: set_output1
+        run: echo "msg1=my name is ${{ github.event.inputs.env }}" >>$GITHUB_OUTPUT
+
+      - name: calling ouput
+        run: | 
+          echo "${{ steps.set_output.outputs.msg }}"
+          echo "I am from ${{ steps.set_output1.outputs.msg1 }} environment"
