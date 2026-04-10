@@ -1,0 +1,22 @@
+#setting input and using it in output
+name: setting input 
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your name"
+        required: false
+        default: "Abhishek"
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print_input
+        run: echo "Hello, ${{ github.event.inputs.username }}
+
+      - name: set_output
+        id: step1
+        run: echo "msg= welcome ${{ github.event.inputs.username }} ,have a nice day " >>$GITHUB_OUTPUT
+
+      - name: use_output
+        run: echo "${{ steps.step1.outcome.msg }}"
