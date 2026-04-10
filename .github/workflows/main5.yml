@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print_input
-        run: echo "Hello, ${{ github.event.inputs.username }}
+        run: echo "Hello, ${{ github.event.inputs.username }} "
 
       - name: set_output
         id: step1
