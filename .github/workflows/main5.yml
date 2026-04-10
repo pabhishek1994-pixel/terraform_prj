@@ -19,4 +19,4 @@ jobs:
         run: echo "msg= welcome ${{ github.event.inputs.username }} ,have a nice day " >>$GITHUB_OUTPUT
 
       - name: use_output
-        run: echo "${{ steps.step1.outcome.msg }}"
+        run: echo "${{ steps.step1.outputs.msg }}"
