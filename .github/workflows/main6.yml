@@ -15,18 +15,19 @@ on:
 jobs:
   demo:
     runs-on: ubuntu-latest
-    steps:  
+    steps:
+      
       - name: setting input
         run: echo "${{ github.event.inputs.username }}"
 
-       - name: setting input
-         run: echo "${{ github.event.inputs.env }}"
+      - name: setting input
+        run: echo "${{ github.event.inputs.env }}"
 
       - name: setting username output
         id: set_output
         run: echo "msg=my name is ${{ github.event.inputs.username }}" >>$GITHUB_OUTPUT
 
-       - name: setting env output
+      - name: setting env output
         id: set_output1
         run: echo "msg1=my name is ${{ github.event.inputs.env }}" >>$GITHUB_OUTPUT
 
